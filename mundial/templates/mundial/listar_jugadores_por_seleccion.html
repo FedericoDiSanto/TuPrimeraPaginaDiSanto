@@ -1,0 +1,16 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Lista Jugadores {% endblock %}
+
+{% block content %}
+<h1> Jugadores de {{ seleccion.nombre }}</h1>
+<ul>
+    {% for jugador in jugadores %}
+        <li>
+            {{jugador.nombre}} {{jugador.apellido}}
+            <a href="{% url 'mundial:detalle_jugador' jugador.id %}" class="btn btn-sm btn-primary"> Ver detalle jugador</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'mundial:listar_selecciones' %}" class="btn btn-secondary mt-3"> Volver </a>
+{% endblock%}

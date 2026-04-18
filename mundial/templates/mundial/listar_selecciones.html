@@ -1,0 +1,16 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Lista Selecciones {% endblock %}
+
+{% block content %}
+<h2> Lista de las selecciones del Mundial 2026 </h2>
+<ul>
+    {% for seleccion in selecciones%}
+        <li>
+            {{ seleccion.nombre }} - Grupo: {{ seleccion.grupo }}
+            <a href="{% url 'mundial:listar_jugadores_por_seleccion' seleccion.id %}" class="btn btn-sm btn-primary"> Ver plantilla </a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'mundial:home' %}" class="btn btn-secondary mt-3"> Volver </a>
+{% endblock %}

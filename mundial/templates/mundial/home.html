@@ -1,0 +1,12 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<h1> Mundial 2026 </h1>
+<p> Bienvenido a la pagina del mundial de Federico donde podes ver selecciones, 
+    jugadores y resultados de los partidos</p>
+    
+<a href="{% url 'mundial:listar_selecciones' %}" class="btn btn-primary m-2"> Ver selecciones </a>
+<a href="{% url 'mundial:listar_partidos' %}" class="btn btn-success m-2"> Ver partidos</a>
+{% endblock %}

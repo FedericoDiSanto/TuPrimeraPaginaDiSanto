@@ -1,0 +1,20 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Detalle Jugador {% endblock %}
+
+{% block content %}
+    <h1>Detalle del jugador</h1>
+    <p> {{ jugador.nombre }} {{ jugador.apellido }}</p>
+    <p> Posicion: {{ jugador.get_posicion_display }}</p>
+    <p> Seleccion: {{jugador.seleccion.nombre}}</p>
+    <p> Edad: {{ jugador.edad }}</p>
+    <p> Goles en mundiales: {{ jugador.goles }}</p>
+    <p> Representante: 
+        {% if jugador.representante %}
+            {{ jugador.representante }}
+        {% else %}
+            Sin representante
+        {% endif %}
+    </p>
+    <a href="{% url 'mundial:listar_jugadores_por_seleccion' jugador.seleccion.id %}" class="btn btn-secondary mt-3"> Volver </a>
+{% endblock %} 

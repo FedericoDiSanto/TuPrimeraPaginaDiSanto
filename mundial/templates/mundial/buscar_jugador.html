@@ -1,0 +1,21 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Buscar Jugador {% endblock %}
+
+{% block content %}
+    <h1> Buscar Jugador </h1>
+    <form method = "GET">
+        {% csrf_token %}
+        <input type="text" name="nombre" placeholder="Buscar jugador..." class="form-control w-25 mb-2">
+        <button type="submit" class="btn btn-primary"> Buscar </button>
+    </form>
+
+<a href="{% url 'mundial:home' %}" class="btn btn-secondary mt-3"> Volver </a>
+
+<div class="mt-4">
+    {% for jugador in jugadores %}
+        <h2>{{ jugador.nombre }} {{ jugador.apellido }}</h2>
+    {% endfor %}
+</div>
+
+{% endblock %}

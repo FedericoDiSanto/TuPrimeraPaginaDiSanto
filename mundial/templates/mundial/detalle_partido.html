@@ -1,0 +1,11 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Detalle Partido {% endblock %}
+
+{% block content %}
+    <h1> Detalle del partido </h1>
+    <p> {{ partido.seleccion_local.nombre }} vs {{ partido.seleccion_visitante.nombre }}</p>
+    <p> Resultado: {{ partido.goles_local }} - {{ partido.goles_visitante }}</p>
+    <p> Fase del Mundial: {{ partido.get_fase_torneo_display }}</p>
+    <a href="{% url 'mundial:listar_partidos' %}" class="btn btn-secondary mt-3"> Volver </a>
+{% endblock %}

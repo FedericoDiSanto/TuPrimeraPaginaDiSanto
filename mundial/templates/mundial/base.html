@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> {% block title %} Mundial {% endblock %} </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+    body {
+        background-color: #f4f8f4; /* verde muy claro */
+    }
+
+    header {
+        background-color: #0d3b2e; /* verde oscuro tipo cancha */
+        padding: 15px;
+    }
+
+    header a {
+        color: white;
+        font-weight: bold;
+        margin-right: 15px;
+        text-decoration: none;
+    }
+
+    header a:hover {
+        color: #ffd700; /* dorado tipo copa */
+    }
+
+    h1, h2 {
+        color: #0d3b2e;
+    }
+
+    footer {
+        background-color: #0d3b2e;
+        color: white;
+        padding: 10px;
+    }
+</style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="{% url 'mundial:home' %}" class="me-3"> Inicio</a>
+                <a href="{% url 'mundial:listar_selecciones' %}" class="me-3"> Lista de selecciones</a>
+                <a href="{% url 'mundial:listar_partidos' %}" class="me-3"> Lista de partidos</a>
+                <a href="{% url 'mundial:buscar_jugador' %}" class="me-3"> Buscar jugador</a>
+                    <span class="me-3 text-white">|</span>
+                <a href="{% url 'mundial:crear_jugador' %}" class="me-3"> Crear jugador</a>
+                <a href="{% url 'mundial:crear_seleccion' %}" class="me-3"> Crear seleccion</a>
+                <a href="{% url 'mundial:crear_partido' %}" class="me-3"> Crear partido</a>
+            </nav>
+        </header>
+        <main class="container-fluid mt-5">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer class="mt-5">
+            <p>Pagina de Fede - 2026</p> 
+        </footer>
+    </body>
+</html>

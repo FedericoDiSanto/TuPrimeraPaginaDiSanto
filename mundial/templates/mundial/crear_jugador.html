@@ -1,0 +1,12 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Crear Jugador {% endblock %}
+
+{% block content %}
+    <h1> Crear Jugador </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"> Crear </button>
+    </form>
+{% endblock %}
