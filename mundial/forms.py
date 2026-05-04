@@ -20,6 +20,17 @@ class SeleccionForm(forms.ModelForm):
         }
 
 class PartidoForm(forms.ModelForm):
+    fecha_partido = forms.DateField(
+        required=False,
+        widget=forms.DateInput(
+            format="%Y-%m-%d",
+            attrs={
+                'class':'form-control',
+                'type':'date'
+            }
+        ),
+        input_formats=["%Y-%m-%d"],
+    )
     class Meta:
         model = Partido
         fields = ("seleccion_local", "seleccion_visitante", "goles_local", "goles_visitante", "fase_torneo", "estadio", "fecha_partido", "imagen", "codigo")
@@ -35,10 +46,6 @@ class PartidoForm(forms.ModelForm):
             "estadio": forms.TextInput(attrs={
                 'class':'form-control',
                 'placeholder': 'Estadio Miami'
-            }),
-            "fecha_partido": forms.DateInput(attrs={
-                'class': 'form-control',
-                'type': 'date'
             }),
             "seleccion_local": forms.Select(attrs={
                 'class': 'form-control',
