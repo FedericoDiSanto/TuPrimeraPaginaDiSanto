@@ -7,5 +7,17 @@
     <p> {{ partido.seleccion_local.nombre }} vs {{ partido.seleccion_visitante.nombre }}</p>
     <p> Resultado: {{ partido.goles_local }} - {{ partido.goles_visitante }}</p>
     <p> Fase del Mundial: {{ partido.get_fase_torneo_display }}</p>
+    <p> Estadio: {{partido.estadio }}</p>
+    {% if partido.imagen %}
+        <img src="{{ partido.imagen.url }}" style="max-width:300px;">
+    {% else %}
+        <p> Sin foto</p>
+    {% endif %}
+    <p> Fecha de partido: {{ partido.fecha_partido }}</p>
+    <p> Creador: {{ partido.creador.username }}</p>
+    {% if partido.creador == user or user.is_superuser %}
+        <a href="{% url 'mundial:editar_partido' partido.pk %}" class="btn btn-primary mt-3"> Editar </a>
+        <a href="{% url 'mundial:borrar_partido' partido.pk  %}" class="btn btn-danger mt-3"> Borrar </a>
+    {% endif %}
     <a href="{% url 'mundial:listar_partidos' %}" class="btn btn-secondary mt-3"> Volver </a>
 {% endblock %}

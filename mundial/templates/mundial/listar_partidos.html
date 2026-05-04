@@ -5,12 +5,16 @@
 {% block content %}
 <h1> Lista de partidos del Mundial 2026 </h1>
 <ul>
-    {% for partido in partidos %}
-    <li>
-        {{ partido.seleccion_local.nombre }} vs {{ partido.seleccion_visitante.nombre }}
-        <a href="{% url 'mundial:detalle_partido' partido.id %}" class="btn btn-sm btn-primary"> Ver detalle del partido </a>
-    </li>
-    {% endfor %}
+    {% if partidos %}
+        {% for partido in partidos %}
+            <li>
+                {{ partido.seleccion_local.nombre }} vs {{ partido.seleccion_visitante.nombre }}
+                <a href="{% url 'mundial:detalle_partido' partido.pk %}" class="btn btn-sm btn-primary"> Ver detalle del partido </a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <h2> No hay partidos cargados </h2>
+    {% endif %}
 </ul>
 <a href="{% url 'mundial:home' %}" class="btn btn-secondary mt-3"> Volver </a>
 {% endblock %}

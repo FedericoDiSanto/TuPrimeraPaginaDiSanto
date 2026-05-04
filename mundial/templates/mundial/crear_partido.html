@@ -3,10 +3,15 @@
 {% block title %} Crear Partido {% endblock %}
 
 {% block content %}
+{% if object %}
+    <h1> Editar Partido </h1>
+{% else %}
     <h1> Crear Partido </h1>
-    <form method="POST">
+{% endif %}
+    <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit"> Crear </button>
+        <button type="submit"> Guardar partido </button>
     </form>
+<a href="{% url 'mundial:listar_partidos' %}" class="btn btn-secondary mt-3"> Volver </a>
 {% endblock %}

@@ -55,6 +55,12 @@ class Partido(models.Model):
     goles_local = models.IntegerField()
     goles_visitante = models.IntegerField()
     fase_torneo = models.CharField(max_length=2, choices= Fase_torneo.choices)
+    estadio = models.CharField(max_length=100)
+    imagen = models.ImageField(upload_to='estadios', null=True, blank=True)
+    fecha_partido = models.DateField()
+    codigo = models.IntegerField(unique=True)
+    creador = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return f"{self.seleccion_local} vs {self.seleccion_visitante} ({self.fase_torneo})"

@@ -16,5 +16,9 @@
             Sin representante
         {% endif %}
     </p>
+    {% if user == jugador.representante or user.is_superuser %}
+        <a href="{% url 'mundial:editar_jugador' jugador.pk %}" class="btn btn-primary mt-3"> Editar </a>
+        <a href="{% url 'mundial:borrar_jugador' jugador.pk %}" class="btn btn-danger mt-3"> Borrar </a>
+    {% endif %}
     <a href="{% url 'mundial:listar_jugadores_por_seleccion' jugador.seleccion.id %}" class="btn btn-secondary mt-3"> Volver </a>
 {% endblock %} 

@@ -13,9 +13,13 @@
 <a href="{% url 'mundial:home' %}" class="btn btn-secondary mt-3"> Volver </a>
 
 <div class="mt-4">
-    {% for jugador in jugadores %}
-        <h2>{{ jugador.nombre }} {{ jugador.apellido }}</h2>
-    {% endfor %}
+    {% if jugadores %}
+        {% for jugador in jugadores %}
+            <h2>{{ jugador.nombre }} {{ jugador.apellido }}</h2>
+        {% endfor %}
+    {% elif nombre %}
+        <h2> No se encontraron jugadores </h2>
+    {% endif %}
 </div>
 
 {% endblock %}

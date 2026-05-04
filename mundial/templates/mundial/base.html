@@ -34,19 +34,49 @@
         color: white;
         padding: 10px;
     }
+
+    nav a {
+    padding: 5px 8px;
+    font-size: 14px;
+    white-space: nowrap;
+}
 </style>
     </head>
     <body>
         <header>
-            <nav>
+            <nav style="display:flex; flex-wrap:nowrap; overflow-x:auto;">
                 <a href="{% url 'mundial:home' %}" class="me-3"> Inicio</a>
-                <a href="{% url 'mundial:listar_selecciones' %}" class="me-3"> Lista de selecciones</a>
-                <a href="{% url 'mundial:listar_partidos' %}" class="me-3"> Lista de partidos</a>
-                <a href="{% url 'mundial:buscar_jugador' %}" class="me-3"> Buscar jugador</a>
+                <a href="{% url 'mundial:about' %}"> Acerca de mi</a>
+
                     <span class="me-3 text-white">|</span>
-                <a href="{% url 'mundial:crear_jugador' %}" class="me-3"> Crear jugador</a>
-                <a href="{% url 'mundial:crear_seleccion' %}" class="me-3"> Crear seleccion</a>
-                <a href="{% url 'mundial:crear_partido' %}" class="me-3"> Crear partido</a>
+
+                <a href="{% url 'mundial:listar_selecciones' %}" class="me-3"> Selecciones</a>
+                <a href="{% url 'mundial:listar_partidos' %}" class="me-3"> Partidos</a>
+                <a href="{% url 'mundial:buscar_jugador' %}" class="me-3"> Buscar jugador</a>
+
+                    <span class="me-3 text-white">|</span>
+                    
+                {% if user.is_authenticated %}
+                    <a href="{% url 'mundial:crear_jugador' %}" class="me-3"> Crear jugador</a>
+                    <a href="{% url 'mundial:crear_seleccion' %}" class="me-3"> Crear seleccion</a>
+                    <a href="{% url 'mundial:crear_partido' %}" class="me-3"> Crear partido</a>
+
+                    <span class="me-3 text-white">|</span>
+
+                    <a href="{% url 'cuentas:perfil' %}"> Ver perfil</a>
+                    <a href="{% url 'cuentas:editar_perfil' %}"> Editar perfil</a>
+                    <a href="{% url 'cuentas:cambiar_contraseña' %}"> Cambiar contraseña</a>
+
+                    <span class="me-3 text-white">|</span>
+
+                    <form action="{% url 'cuentas:logout' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" style="background:none; border:none; color:white; font-weight:bold; margin-right: 15px; cursor:pointer;"> Cerrar sesion </button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'cuentas:login' %}"> Iniciar sesion </a>
+                    <a href="{% url 'cuentas:registro' %}"> Registrarse </a>
+                {% endif %}
             </nav>
         </header>
         <main class="container-fluid mt-5">

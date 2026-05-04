@@ -1,0 +1,21 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Confirmar Borrado {% endblock %}
+
+{% block content %}
+    <h1> Confirmar Borrado </h1>
+    <p> Estas seguro que deseas eliminar:
+        {% if object.seleccion_local %}
+            {{ object.seleccion_local }} vs {{ object.seleccion_visitante }} - {{ object.get_fase_torneo_display }}
+        {% else %}
+            {{ object.nombre }} {{ object.apellido }}
+        {% endif %}
+        ?
+    </p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger"> Eliminar </button>
+    </form>
+<a href="{% url 'mundial:listar_partidos' %}" class="btn btn-secondary mt-3"> Volver </a>
+{% endblock %}
+

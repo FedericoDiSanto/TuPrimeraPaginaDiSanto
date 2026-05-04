@@ -1,0 +1,13 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<h1> Ingresar </h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Iniciar sesion </button>
+</form>
+<a href="{% url 'cuentas:registro' %}" class="btn btn-primary mt-3"> Registrarse </a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Acerca de mí {% endblock %}
+
+{% block content %}
+    <h1>Acerca de mí</h1>
+
+    <p>
+        Hola, soy Federico. Esta es una aplicación web sobre el Mundial 2026
+        donde se pueden ver selecciones, jugadores y partidos.
+    </p>
+
+    <p>
+        El proyecto fue desarrollado con Django como parte de mi aprendizaje
+        en programación web.
+    </p>
+
+    <a href="{% url 'mundial:home' %}" class="btn btn-secondary mt-3"> Volver </a>
+{% endblock %}

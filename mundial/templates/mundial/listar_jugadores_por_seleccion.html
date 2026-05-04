@@ -7,7 +7,7 @@
 <ul>
     {% for jugador in jugadores %}
         <li>
-            {{jugador.nombre}} {{jugador.apellido}}
+            {{ jugador.nombre }} {{ jugador.apellido }}
             <a href="{% url 'mundial:detalle_jugador' jugador.id %}" class="btn btn-sm btn-primary"> Ver detalle jugador</a>
         </li>
     {% endfor %}

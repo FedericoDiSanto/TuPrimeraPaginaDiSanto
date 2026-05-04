@@ -1,12 +1,23 @@
 {% extends 'mundial/base.html' %}
 
-{% block title %} Crear Jugador {% endblock %}
+{% block title %} 
+{% if object %} 
+    Editar Jugador
+{% else %} 
+    Crear Jugador
+{% endif %}
+{% endblock %}
 
 {% block content %}
+{% if object %} 
+    <h1> Editar Jugador </h1>
+{% else %} 
     <h1> Crear Jugador </h1>
+{% endif %}
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit"> Crear </button>
+        <button type="submit"> Guardar jugador </button>
     </form>
+<a href="{% url 'mundial:listar_selecciones' %}" class="btn btn-secondary mt-3"> Volver </a>
 {% endblock %}

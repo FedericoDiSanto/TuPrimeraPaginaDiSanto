@@ -1,13 +1,66 @@
 Proyecto Mundial 2026
 
+
+Descripción
+Aplicación web desarrollada en Django que simula un Mundial de Fútbol.
+Permite gestionar jugadores, selecciones y partidos, con sistema de autenticación de usuarios y perfiles personalizados.
+
+
 Funcionalidades
+* CRUD completo de partidos
+* CRUD completo de jugadores
 * Listar selecciones
-* Ver jugadores por selección
-* Ver detalle de jugador
-* Listar partidos
-* Ver detalle de partido
-* Crear jugadores, selecciones y partidos
+* Crear selecciones 
 * Buscar jugadores por nombre o apellido
+
+
+Usuarios (app cuentas)
+- Registro de usuarios
+- Login y logout
+- Perfil de usuario (crear, ver y editar)
+- Cambio de contraseña
+
+Seguridad
+- Login obligatorio para la mayoría de las acciones
+- Permisos en actualizacion y eliminación de partidos:
+     Solo el creador o superusuario puede borrar
+- Permisos en actualizacion y eliminación de jugadores:
+     Solo el creador o superusuario puede borrar
+- Uso de LoginRequiredMixin y decoradores @login_required
+
+
+Modelos
+
+Jugador
+- nombre
+- apellido
+- posición
+- edad
+- goles
+- selección (FK)
+- representante (User)
+
+Selección
+- nombre
+- grupo (A–H)
+
+Partido
+- selección local (FK)
+- selección visitante (FK)
+- goles local / visitante
+- fase del torneo
+- estadio
+- fecha
+- imagen
+- código único
+- creador (User)
+
+Perfil
+- usuario (OneToOne con User)
+- avatar (con imagen por defecto)
+- biografía
+- fecha de nacimiento
+- DNI
 
 
 Orden recomendado para probar
@@ -19,9 +72,27 @@ Orden recomendado para probar
 6. Probar "Buscar jugador"
 
 
+Autenticación
+Configuración utilizada:
+- LOGIN_URL = cuentas:login
+- LOGIN_REDIRECT_URL = mundial:home
+- LOGOUT_REDIRECT_URL = cuentas:login
+
+
 Notas
 - El representante del jugador se asigna automáticamente si el usuario está logueado
 - Si no hay usuario logueado, el jugador se crea sin representante
+- El perfil de usuario no se crea automáticamente, se genera manualmente desde una vista de creación de perfil.
+- El avatar del perfil tiene imagen por defecto si el usuario no sube una.
+
+
+Estado del proyecto
+* CRUD completo funcional  
+* Autenticación completa  
+* Sistema de perfiles implementado  
+* Permisos por usuario  
+* Media configurado  
+* Templates organizados  
 
 
 Levantar el proyecto (Mac)
@@ -57,4 +128,7 @@ http://127.0.0.1:8000/
 
 Estructura del proyecto
 + proyecto_mundial/ → configuración principal Django
-+ mundial/ → app principal del proyecto
++ mundial/ → app principal del proyecto (jugadores, selecciones, partidos)
++ cuentas/ → autenticación y perfiles
++ templates/ → vistas HTML organizadas por app
++ media/ → imágenes de usuarios (avatars)

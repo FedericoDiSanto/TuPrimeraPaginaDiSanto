@@ -1,0 +1,65 @@
+{% extends 'mundial/base.html' %}
+
+{% block title %} Mi Perfil {% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h1 class="mb-4">Mi Perfil</h1>
+
+    <div class="d-flex justify-content-between align-items-start p-4 shadow rounded bg-white">
+
+
+        <div style="flex: 1;">
+
+            <p><strong>Usuario:</strong> {{ perfil.usuario.username }}</p>
+            <p><strong>Nombre:</strong> {{ perfil.usuario.first_name }}</p>
+            <p><strong>Apellido:</strong> {{ perfil.usuario.last_name }}</p>
+            <p><strong>Email:</strong> {{ perfil.usuario.email }}</p>
+
+            <hr>
+            {% if perfil.dni %}
+            <p><strong>DNI:</strong> {{ perfil.dni }}</p>
+            {% else %}
+            <p><strong>DNI:</strong> Sin especificar </p>
+            {% endif %}
+            {% if perfil.fecha_nacimiento %}
+                <p><strong>Fecha de nacimiento:</strong> {{ perfil.fecha_nacimiento }}</p>
+            {% else %}
+                <p><strong>Fecha de nacimiento:</strong> Sin especificar </p>
+            {% endif %}
+            <p><strong>Biografía:</strong> {{ perfil.biografia }}</p>
+
+            <div class="mt-3">
+                <a href="{% url 'cuentas:editar_perfil' %}" class="btn btn-secondary">
+                    Editar perfil
+                </a>
+
+                <a href="{% url 'cuentas:cambiar_contraseña' %}" class="btn btn-primary">
+                    Cambiar contraseña
+                </a>
+            </div>
+
+        </div>
+
+
+        <div style="text-align: center; margin-left: 30px;">
+
+            {% if perfil.avatar %}
+                <img src="{{ perfil.avatar.url }}"
+                     class="rounded-circle shadow"
+                     style="width:180px; height:180px; object-fit:cover;">
+            {% else %}
+                <img src="/media/avatars/default.png"
+                     class="rounded-circle shadow"
+                     style="width:180px; height:180px; object-fit:cover;">
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
