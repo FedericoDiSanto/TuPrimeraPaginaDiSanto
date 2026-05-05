@@ -132,3 +132,8 @@ Estructura del proyecto
 + cuentas/ → autenticación y perfiles
 + templates/ → vistas HTML organizadas por app
 + media/ → imágenes de usuarios (avatars)
+
+
+Video del proyecto
+En el siguiente enlace se puede ver una demostración completa del funcionamiento de la aplicación:
+https://drive.google.com/file/d/1ABuYGZ68dLqxd_iSKKvj1xtOb8Y9WhUn/view?usp=sharing
