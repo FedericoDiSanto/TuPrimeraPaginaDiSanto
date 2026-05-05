@@ -134,6 +134,6 @@ Estructura del proyecto
 + media/ → imágenes de usuarios (avatars)
 
 
-Video del proyecto
-En el siguiente enlace se puede ver una demostración completa del funcionamiento de la aplicación:   
+Video del proyecto<br>
+En el siguiente enlace se puede ver una demostración completa del funcionamiento de la aplicación:<br>
 https://drive.google.com/file/d/1ABuYGZ68dLqxd_iSKKvj1xtOb8Y9WhUn/view?usp=sharing
