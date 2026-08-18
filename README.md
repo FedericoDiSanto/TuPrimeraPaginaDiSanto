@@ -27,10 +27,10 @@ Usuarios (app cuentas)
 
 Seguridad
 - Login obligatorio para la mayoría de las acciones
-- Permisos en actualizacion y eliminación de partidos:
+- Permisos en actualización y eliminación de partidos:
      Solo el creador o superusuario puede borrar
-- Permisos en actualizacion y eliminación de jugadores:
-     Solo el creador o superusuario puede borrar
+- Permisos en actualización y eliminación de jugadores:
+     Solo el representante o superusuario puede borrar
 - Uso de LoginRequiredMixin y decoradores @login_required
 
 
