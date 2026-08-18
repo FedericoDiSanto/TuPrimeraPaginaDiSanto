@@ -1,9 +1,14 @@
 Proyecto Mundial 2026
 
 
-Descripción
+Descripción<br>
 Aplicación web desarrollada en Django que simula un Mundial de Fútbol.
 Permite gestionar jugadores, selecciones y partidos, con sistema de autenticación de usuarios y perfiles personalizados.
+
+
+Video del proyecto<br>
+En el siguiente enlace se puede ver una demostración completa del funcionamiento de la aplicación (4 min):
+https://drive.google.com/file/d/1ABuYGZ68dLqxd_iSKKvj1xtOb8Y9WhUn/view?usp=sharing
 
 
 Funcionalidades
@@ -132,9 +137,3 @@ Estructura del proyecto
 + cuentas/ → autenticación y perfiles
 + templates/ → vistas HTML organizadas por app
 + media/ → imágenes de usuarios (avatars)
-
-
-Video del proyecto<br>
-En el siguiente enlace se puede ver una demostración completa del funcionamiento de la aplicación:<br>
-https://drive.google.com/file/d/1ABuYGZ68dLqxd_iSKKvj1xtOb8Y9WhUn/view?usp=sharing <br>
-("Demo en video — 3 min")
